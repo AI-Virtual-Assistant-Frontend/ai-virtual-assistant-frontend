@@ -36,4 +36,9 @@ li {
 a {
   color: #42b983;
 }
+.recommendationBrowser {
+  /* background: chartreuse; */
+  /* margin: 0px 40%; */
+  width: 50%;
+}
 </style>

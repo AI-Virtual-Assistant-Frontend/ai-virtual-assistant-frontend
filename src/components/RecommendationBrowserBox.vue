@@ -38,7 +38,7 @@ export default {
   text-align: left;
   background-color: #006CBA;
   border: 2px solid #002C3A;
-  margin: 0px 30%;
+  margin: 0px 5%;
 }
 .buttonDiv {
   /* float: left; */
