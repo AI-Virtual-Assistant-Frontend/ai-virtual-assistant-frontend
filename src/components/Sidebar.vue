@@ -1,7 +1,7 @@
 <template>
 <div id="Recommand">
     <input type="button" name="Recommand" value="Recommand" @click="toggleDisplay"/>
-    <div id = "welcomeDiv" class="backdrop" style="display:none;">
+    <div id = "welcomeDiv" class="backdrop" v-show="display">
         <div class = "Sidebar">
             <h2>Sidebar content</h2>
             <button class = "button2" >Add Data</button>
