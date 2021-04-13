@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 # ai-virtual-assistant-frontend
-=======
-# ai-virtual-assistant
 
 ## Project setup
 ```
@@ -21,6 +18,11 @@ npm run build
 ### Lints and fixes files
 ```
 npm run lint
+```
+
+### Deploys app to S3
+```
+npm run deploy
 ```
 
 ### Customize configuration
