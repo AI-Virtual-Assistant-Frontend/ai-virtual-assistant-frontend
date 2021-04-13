@@ -22,6 +22,7 @@ npm run lint
 
 ### Deploys app to AWS S3 bucket
 ```
+npm run build
 npm run deploy
 ```
 Can view the deployed app at: http://cs499group7.s3-website.us-east-2.amazonaws.com/
