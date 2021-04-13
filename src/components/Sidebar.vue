@@ -1,6 +1,6 @@
 <template>
 <div id="Recommand">
-    <input type="button" name="Recommand" value="Recommand" @click="showdiv()"/>
+    <input type="button" name="Recommand" value="Recommand" @click="toggleDisplay"/>
     <div id = "welcomeDiv" class="backdrop" style="display:none;">
         <div class = "Sidebar">
             <h2>Sidebar content</h2>
@@ -44,13 +44,21 @@
 export default {
     name: 'Sidebar',
     methods: {
-    handleclick(){
-      console.log(this.$ref.name)
-      this.$ref.name.classList.add('active')
+        handleclick(){
+          console.log(this.$ref.name)
+          this.$ref.name.classList.add('active')
+        },
+        showdiv(){
+            document.getElementById("welcomeDiv").style.display = "";
+        },
+        toggleDisplay() {
+                this.display = !this.display;
+        }
     },
-    showdiv(){
-        document.getElementById("welcomeDiv").style.display = "";
-    }
+    data() {
+        return {
+            display: false
+        }
     }
 }
 
