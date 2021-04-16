@@ -5,24 +5,35 @@
     <div class = "panel">
       <h3>Directory</h3> <button v-on:click="refresh">refresh</button>
       <div class = "subpanel">
-        <div v-for="Directory in Directories" v-bind:key="Directory.id" align="left">
-          <button class="buttonInvis" v-on:click="expand(Directory)"> > <b>{{ Directory.Name }}</b> </button>
-          <div v-for="element in Directory.Contents" v-bind:key="element.id">
-            <p> <button class="buttonInvis" v-on:click="expand(element)"><b>{{ element }}</b> </button> </p>
+        <navigation-directory v-bind:Directory="Directories" v-bind:depth="0"></navigation-directory>
+        <!-- <div v-for="Directory in Directories" v-bind:key="Directory.id" align="left">
+          <button class="buttonInvis" v-on:click="expand(Directory)"> > <b>{{ Directory.brief }}</b> </button>
+          <div v-if="Directory.open">
+            <div v-for="element in Directory.subrecommendations" v-bind:key="element.id">
+              <p> <button class="buttonInvis" v-on:click="expand(element)"><b>{{ element.brief }}</b> </button> </p>
+            </div>
           </div>
-        </div>
+        </div> -->
       </div>
+    </div>
+    <div class = "central">
+      <recommendation-browser-component ref="recommendationBrowser" style="float: left;" v-bind:recommendation="recommendations"></recommendation-browser-component>
     </div>
   </div>
 </template>
 
 <script>
+import NavigationDirectory from "./NavigationDirectory.vue"
 import MongoDB from "./MongoDB.vue"
+import RecommendationBrowserComponent from './RecommendationBrowser.vue'
 
 export default {
   components: {
-    MongoDB
+    NavigationDirectory,
+    MongoDB,
+    RecommendationBrowserComponent
   },
+  props: ['recommendations'],
   name: 'Navigation',
   data(){
     return{
@@ -38,6 +49,9 @@ export default {
     },
     expand(Directory){
       this.$refs.MongoInstance.subdirectoryUpdate(Directory)
+      // if (Director) {
+        // this.$emit('expandDirectory', this.Directories)
+      // }
     },
     getDirectories(Directories){
       console.log('Got from MongoDB', Directories)
@@ -78,6 +92,11 @@ li {
     margin-right: 5px;
     border-radius: 5px;
     background:rgba(155, 179, 247, 0.219);
+}
+.central{
+  width: 400px;
+  position: relative;
+  right: -220px;
 }
 p {
     white-space: pre;

@@ -1,22 +1,23 @@
 <template>
   <div class="recommendationBrowser">
     <h3>Recommendation Browser</h3>
-    <recommendation-browser-box-component 
-      v-for="recommendation in recommendations"
-      v-bind:key="recommendation.id"
-      v-bind:recommendation="recommendation"></recommendation-browser-box-component>
+    <p>{{recommendation.subrecommendations}}</p>
+    <!-- <recommendation-browser-box-component 
+      v-for="subrecommendation in recommendation.subrecommendations"
+      v-bind:key="subrecommendation.id"
+      v-bind:recommendation="subrecommendation"></recommendation-browser-box-component> -->
   </div>
 </template>
 
 <script>
-import RecommendationBrowserBoxComponent from './RecommendationBrowserBox.vue'
+// import RecommendationBrowserBoxComponent from './RecommendationBrowserBox.vue'
 
 export default {
   components: {
-    RecommendationBrowserBoxComponent
+    // RecommendationBrowserBoxComponent
   },
   name: 'RecommendationBrowserComponent',
-  props: ['recommendations'],
+  props: ['recommendation'],
 }
 </script>
 
@@ -37,8 +38,8 @@ a {
   color: #42b983;
 }
 .recommendationBrowser {
-  /* background: chartreuse; */
+  background: chartreuse;
   /* margin: 0px 40%; */
-  width: 50%;
+  width: 100%;
 }
 </style>
