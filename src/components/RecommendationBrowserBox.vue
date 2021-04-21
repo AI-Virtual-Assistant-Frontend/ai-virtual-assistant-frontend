@@ -17,9 +17,6 @@ export default {
   props: {
     recommendation: {
       type: Object
-    },
-    recTree: {
-      type: Object
     }
   },
   methods: {

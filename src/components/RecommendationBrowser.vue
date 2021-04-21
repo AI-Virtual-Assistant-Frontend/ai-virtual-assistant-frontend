@@ -1,13 +1,10 @@
 <template>
   <div class="recommendationBrowser">
     <h3>Recommendation Browser</h3>
-    <div 
-      v-for="recommendation in recommendations"
-      v-bind:key="recommendation.id"
-    >
+    <div v-for="subrecommendation in recommendation.subrecommendations"
+      v-bind:key="subrecommendation.id">
       <RecommendationBrowserBoxComponent
-        :recommendation="recommendation"
-        :recTree="recs[0]"
+        :recommendation="subrecommendation"
         @selectRec="recSelected"
       />
     </div>
@@ -32,7 +29,7 @@ export default {
   },
   name: 'RecommendationBrowserComponent',
   props: {
-    recommendations: {
+    recommendation: {
       type: Array,
       default: null
     }
@@ -44,11 +41,7 @@ export default {
       // make popup visible
       this.isPopupVisible = true;
       // find selected recommendation tree
-      this.recs.filter(obj => {
-        if (obj.id == recommendation.id) {
-          this.selectedTree = obj;
-        }
-      });
+      this.selectedTree = recommendation;
     },
     closePopup() {
       this.isPopupVisible = false;
@@ -57,68 +50,7 @@ export default {
   data() {
     return {
       isPopupVisible: false,
-      selectedTree: null,
-      recs: [
-        {
-          id: 1,
-          name: 'Recommendation',
-          description: 'Description',
-          children: [
-            {
-              id: 1,
-              name: 'Reason1',
-              description: 'Description',
-              children: [
-                {
-                  id: 1,
-                  name: 'Data1',
-                  description: 'Description',
-                  children: []
-                },
-                {
-                  id: 2,
-                  name: 'Data2',
-                  description: 'Description',
-                  children: []
-                }
-              ]
-            }, 
-            {
-              id: 2,
-              name: 'Reason2',
-              description: 'Description',
-              children: [
-                {
-                  id: 1,
-                  name: 'Data1',
-                  description: 'Description',
-                  children: []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          id: 2,
-          name: 'Recommendation',
-          description: 'Description',
-          children: [
-            {
-              id: 1,
-              name: 'Reason1',
-              description: 'Description',
-              children: [
-                {
-                  id: 1,
-                  name: 'Data1',
-                  description: 'Description',
-                  children: []
-                }
-              ]
-            }
-          ]
-        }
-      ]
+      selectedTree: null
     }
   }
 }
@@ -141,8 +73,7 @@ a {
   color: #42b983;
 }
 .recommendationBrowser {
-  /* background: chartreuse; */
-  /* margin: 0px 40%; */
+  background: chartreuse;
   width: 100%;
 }
 </style>

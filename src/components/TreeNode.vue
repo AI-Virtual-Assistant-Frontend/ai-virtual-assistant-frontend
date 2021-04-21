@@ -6,7 +6,6 @@
     </button>
     <div class="same-level">
       <div class="children" v-show="expanded" v-for="child in currTree.children" :key="child.name">
-        <!-- <TreeNode :name="child.name" :description="child.description" :children="child.children" /> -->
         <TreeNode :currTree="child" />
       </div>
     </div>

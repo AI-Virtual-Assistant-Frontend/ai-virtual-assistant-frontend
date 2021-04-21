@@ -5,39 +5,46 @@
     <div class = "panel">
       <h3>Directory</h3> <button v-on:click="refresh">refresh</button>
       <div class = "subpanel">
-        <div v-for="Directory in Directories" v-bind:key="Directory.id" align="left">
-          <button class="buttonInvis" v-on:click="expand(Directory)"> > <b>{{ Directory.Name }}</b> </button>
-          <div v-for="element in Directory.Contents" v-bind:key="element.id">
-            <p> <button class="buttonInvis" v-on:click="expand(element)"><b>{{ element }}</b> </button> </p>
-          </div>
-        </div>
+        <navigation-directory v-bind:Directory="Directories" v-bind:depth="0"></navigation-directory>
       </div>
+    </div>
+    
+    <div class = "central">
+      <recommendation-browser-component @selected="showSidebar" ref="recommendationBrowser" style="float: left;" v-bind:recommendation="SelectedRecommendation"></recommendation-browser-component>
     </div>
   </div>
 </template>
 
 <script>
+import NavigationDirectory from "./NavigationDirectory.vue"
 import MongoDB from "./MongoDB.vue"
-
+import RecommendationBrowserComponent from './RecommendationBrowser.vue'
 export default {
   components: {
-    MongoDB
+    NavigationDirectory,
+    MongoDB,
+    RecommendationBrowserComponent
   },
   name: 'Navigation',
   data(){
     return{
-      Directories: Array
+      Directories: Array,
+      SelectedRecommendation: Object
     }
   },
   mounted() {
     this.refresh()
   },
   methods: {
+    showSidebar() {
+      this.$emit('showSidebar');
+    },
     refresh(){
       this.$refs.MongoInstance.directoryUpdate()
     },
     expand(Directory){
       this.$refs.MongoInstance.subdirectoryUpdate(Directory)
+      this.SelectedRecommendation = Directory;
     },
     getDirectories(Directories){
       console.log('Got from MongoDB', Directories)
@@ -65,7 +72,8 @@ li {
   background-color: rgba(0, 0, 0, 0);
 }
 .panel{
-    width:220px;
+    float: left;
+    width:350px;
     height:50vh;
     border-radius: 5px;
     background:rgba(155, 179, 247, 0.219);
@@ -78,6 +86,12 @@ li {
     margin-right: 5px;
     border-radius: 5px;
     background:rgba(155, 179, 247, 0.219);
+}
+.central{
+  float: right;
+  width: 700px;
+  position: relative;
+  /* right: -100px; */
 }
 p {
     white-space: pre;
