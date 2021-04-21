@@ -1,6 +1,5 @@
 <template>
-<div id="Recommand">
-  <!-- <input type="button" name="Recommand" value="Recommand" @click="toggleDisplay"/> -->
+<div id="Recommend">
   <div id = "welcomeDiv" class="backdrop">
     <div class = "Sidebar">
       <button
@@ -52,16 +51,12 @@ export default {
     handleclick(){
     console.log(this.$ref.name)
     this.$ref.name.classList.add('active')
-    },
-    showdiv(){
-        document.getElementById("welcomeDiv").style.display = "";
-    },
+    }
     close() {
       this.$emit('close');    
     }
   }
 }
-
 </script>
 
 <style scoped>

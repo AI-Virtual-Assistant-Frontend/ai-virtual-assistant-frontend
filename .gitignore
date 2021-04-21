@@ -24,4 +24,4 @@ pnpm-debug.log*
 
 # Local files
 /my_resources
-src/App.vue
+# src/App.vue

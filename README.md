@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 # ai-virtual-assistant-frontend
-=======
-# ai-virtual-assistant
 
 ## Project setup
 ```
@@ -22,6 +19,13 @@ npm run build
 ```
 npm run lint
 ```
+
+### Deploys app to AWS S3 bucket
+```
+npm run build
+npm run deploy
+```
+Can view the deployed app at: http://cs499group7.s3-website.us-east-2.amazonaws.com/
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

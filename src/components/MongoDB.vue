@@ -151,7 +151,7 @@ export default {
         {
             open: false,
             brief: "Domain Recommendation", 
-            content: "You should invest in Employee Engagement", 
+            content: "You should invest in Employee Engagement",
             children: [
                 { brief: 'Reason 1',
                 content: "The Reason is that peer benchmarking shows...",

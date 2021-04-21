@@ -19,6 +19,7 @@
 import NavigationDirectory from "./NavigationDirectory.vue"
 import MongoDB from "./MongoDB.vue"
 import RecommendationBrowserComponent from './RecommendationBrowser.vue'
+
 export default {
   components: {
     NavigationDirectory,

@@ -1,5 +1,6 @@
 <template>
   <div class="recommendationBox">
+    <p>{{recommendation.brief}}</p>
     <div class=buttonDiv>
       <button @click="selectRec">{{ recommendation.brief }}</button>
     </div>
