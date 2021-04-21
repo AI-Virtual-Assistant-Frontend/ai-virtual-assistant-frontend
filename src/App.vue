@@ -10,91 +10,23 @@
 </template>
 
 <script>
-// import todoComponent from './components/todoComponent.vue'
-// import RecommendationBrowserComponent from './components/RecommendationBrowser.vue'
 import Navigation from './components/Navigation.vue'
 import Sidebar from './components/Sidebar.vue'
-//import RecommendationBrowserBoxComponent from './components/RecommendationBrowserBox.vue'
 
 export default {
   name: 'App',
   components: {
-    // todoComponent,
-    //RecommendationBrowserBoxComponent
-    // RecommendationBrowserComponent,
     Navigation,
     Sidebar
   },
   data() {
     return {
-      // categoryRecommendation: 
-      // {
-      //   id: 1,
-      //   brief: "Rec 1", 
-      //   content: "This is the first recommendation. asdfasdf asdf asd asd fasd fasd fasdf asdf asf zdas fasf asd fasd f", 
-      //   reasons: [
-      //     {content: "This is reason 1.",
-      //     evidence: [
-      //       {content: "Evidence 1"},
-      //       {content: "Evidence 2"},
-      //     ]}
-      //   ],
-      //   subrecommendations: []
-      // },
 
-      // domainRecommendation:
-      // {
-      //   id: 2,
-      //   brief: "Domain Recommendation.", 
-      //   content: "You should invest in Employee Engagement", 
-      //   reasons: [
-      //     {content: "The Reason is that peer benchmarking shows...",
-      //     evidence: [
-      //       {content: "Evidence 1: 97% of peers..."},
-      //       {content: "Evidence 2: More evidence for this reason."},
-      //     ]}
-      //   ],
-      //   // subrecommendations: ["a", "b", "c"]
-      //   subrecommendations: [this.testStr]
-      // },
-      // testStr: "What the ...?",
-      //   testRec: {id:3, brief: "Test Rec", content: "This is a test recommendation.", subrecommendations: ["a", "b", "c"]},
-        // {id:3, brief: "Rec 3", content: "This is the third recommendation."},
-        // {id:4, brief: "Rec 4", content: "This is the fourth recommendation."},
-        // {id:5, brief: "Rec 5", content: "This is the fifth recommendation."},
-        // {id:6, brief: "Rec 6", content: "This is the sixth recommendation."},
-      // ]
     }
   },
   methods: {
     testMethod(){
 
-      // let categoryRecommendation = 
-      // {
-      //   brief: "Rec 1", 
-      //   content: "This is the first recommendation. asdfasdf asdf asd asd fasd fasd fasdf asdf asf zdas fasf asd fasd f", 
-      //   reasons: [
-      //     {content: "This is reason 1.",
-      //     evidence: [
-      //       {content: "Evidence 1"},
-      //       {content: "Evidence 2"},
-      //     ]}
-      //   ],
-      // }
-
-      // let domainRecommendation = 
-      // {
-      //   brief: "Domain Recommendation.", 
-      //   content: "You should invest in Employee Engagement", 
-      //   reasons: [
-      //     {content: "The Reason is that peer benchmarking shows...",
-      //     evidence: [
-      //       {content: "Evidence 1: 97% of peers..."},
-      //       {content: "Evidence 2: More evidence for this reason."},
-      //     ]}
-      //   ],
-      //   subrecommendations: [categoryRecommendation]
-      // }
     }
   }
 }
@@ -114,10 +46,12 @@ export default {
   clear: both;
 } */
 .navigation {
-  display: flex;
+  /* display: flex; */
+  float: left;
 }
 .sidebar {
-  display: flex;
+  float: right;
+  /* display: flex; */
 }
 .recommendation-browser-component {
   display: flex;

@@ -6,18 +6,11 @@
       <h3>Directory</h3> <button v-on:click="refresh">refresh</button>
       <div class = "subpanel">
         <navigation-directory v-bind:Directory="Directories" v-bind:depth="0"></navigation-directory>
-        <!-- <div v-for="Directory in Directories" v-bind:key="Directory.id" align="left">
-          <button class="buttonInvis" v-on:click="expand(Directory)"> > <b>{{ Directory.brief }}</b> </button>
-          <div v-if="Directory.open">
-            <div v-for="element in Directory.subrecommendations" v-bind:key="element.id">
-              <p> <button class="buttonInvis" v-on:click="expand(element)"><b>{{ element.brief }}</b> </button> </p>
-            </div>
-          </div>
-        </div> -->
       </div>
     </div>
+    
     <div class = "central">
-      <recommendation-browser-component ref="recommendationBrowser" style="float: left;" v-bind:recommendation="recommendations"></recommendation-browser-component>
+      <recommendation-browser-component ref="recommendationBrowser" style="float: left;" v-bind:recommendation="SelectedRecommendation"></recommendation-browser-component>
     </div>
   </div>
 </template>
@@ -33,11 +26,11 @@ export default {
     MongoDB,
     RecommendationBrowserComponent
   },
-  props: ['recommendations'],
   name: 'Navigation',
   data(){
     return{
-      Directories: Array
+      Directories: Array,
+      SelectedRecommendation: Object
     }
   },
   mounted() {
@@ -49,9 +42,7 @@ export default {
     },
     expand(Directory){
       this.$refs.MongoInstance.subdirectoryUpdate(Directory)
-      // if (Director) {
-        // this.$emit('expandDirectory', this.Directories)
-      // }
+      this.SelectedRecommendation = Directory;
     },
     getDirectories(Directories){
       console.log('Got from MongoDB', Directories)
@@ -79,7 +70,8 @@ li {
   background-color: rgba(0, 0, 0, 0);
 }
 .panel{
-    width:220px;
+    float: left;
+    width:350px;
     height:50vh;
     border-radius: 5px;
     background:rgba(155, 179, 247, 0.219);
@@ -94,9 +86,10 @@ li {
     background:rgba(155, 179, 247, 0.219);
 }
 .central{
-  width: 400px;
+  float: right;
+  width: 700px;
   position: relative;
-  right: -220px;
+  /* right: -100px; */
 }
 p {
     white-space: pre;

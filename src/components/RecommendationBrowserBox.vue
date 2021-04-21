@@ -1,5 +1,6 @@
 <template>
   <div class="recommendationBox">
+    <p>{{recommendation.brief}}</p>
     <div class=buttonDiv>
       <button v-on:click="toggleSelect">{{ recommendation.brief }}</button>
     </div>

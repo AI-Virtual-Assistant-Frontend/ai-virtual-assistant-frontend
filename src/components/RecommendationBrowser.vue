@@ -1,20 +1,25 @@
 <template>
   <div class="recommendationBrowser">
     <h3>Recommendation Browser</h3>
-    <p>{{recommendation.subrecommendations}}</p>
-    <!-- <recommendation-browser-box-component 
+    <!-- <p>{{recommendation.subrecommendations}}</p> -->
+    <div v-for="subrecommendation in recommendation.subrecommendations"
+      v-bind:key="subrecommendation.id">
+      <recommendation-browser-box v-bind:recommendation="subrecommendation"></recommendation-browser-box>
+    </div>
+    <recommendation-browser-box-component 
       v-for="subrecommendation in recommendation.subrecommendations"
       v-bind:key="subrecommendation.id"
-      v-bind:recommendation="subrecommendation"></recommendation-browser-box-component> -->
+      v-bind:recommendation="subrecommendation"></recommendation-browser-box-component>
   </div>
 </template>
 
 <script>
+import RecommendationBrowserBox from './RecommendationBrowserBox.vue'
 // import RecommendationBrowserBoxComponent from './RecommendationBrowserBox.vue'
 
 export default {
   components: {
-    // RecommendationBrowserBoxComponent
+    RecommendationBrowserBox
   },
   name: 'RecommendationBrowserComponent',
   props: ['recommendation'],

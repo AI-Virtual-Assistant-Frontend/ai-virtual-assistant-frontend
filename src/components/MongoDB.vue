@@ -10,91 +10,164 @@ export default {
   name: 'MongoDB',
   methods: {
     directoryUpdate(){
-        // let dir1 = {
-        //     Name: "dir 1",
-        //     Contents: null
-        // }
-        // let dir2 = {
-        //     Name: "dir 2",
-        //     Contents: null
-        // }
+        let lowestLevelRecommendation = 
+        {
+            open: false,
+            brief: "Lowest Level Recommendation", 
+            content: "This is a lowest level recommendation", 
+            reasons: [
+                {content: "This is a reason for this lowest level recommendation.",
+                evidence: [
+                    {content: "Evidence 1 for lowest level reason"},
+                    {content: "Evidence 2 for lowest level reason"},
+                    {content: "Evidence 3 for lowest level reason"},
+                ]}
+            ],
+            subrecommendations: []
+        }
+        let lowerLevelRecommendation = 
+        {
+            open: false,
+            brief: "Lower Level Recommendation", 
+            content: "This is a lower level recommendation", 
+            reasons: [
+                {content: "This is a reason for this lower level recommendation.",
+                evidence: [
+                    {content: "Evidence 1 for lower level reason"},
+                    {content: "Evidence 2 for lower level reason"},
+                    {content: "Evidence 3 for lower level reason"},
+                ]}
+            ],
+            subrecommendations: [lowestLevelRecommendation]
+        }
         let lowLevelRecommendation = 
         {
-            id: 3,
             open: false,
             brief: "Low Level Recommendation", 
             content: "This is a low level recommendation", 
             reasons: [
-            {content: "This is a reason for this low level recommendation.",
-            evidence: [
-                {content: "Evidence 1 for low level reason"},
-                {content: "Evidence 2 for low level reason"},
-            ]}
+                {content: "This is a reason for this low level recommendation.",
+                evidence: [
+                    {content: "Evidence 1 for low level reason"},
+                    {content: "Evidence 2 for low level reason"},
+                ]}
+            ],
+            subrecommendations: [lowerLevelRecommendation]
+        }
+        let lowLevelRecommendation2 = 
+        {
+            open: false,
+            brief: "Low Level Recommendation 2", 
+            content: "This is a second low level recommendation", 
+            reasons: [
+                {content: "This is a reason for this low level recommendation.",
+                evidence: [
+                    {content: "Evidence 1 for low level reason"},
+                    {content: "Evidence 2 for low level reason"},
+                ]}
             ],
             subrecommendations: []
         }
         let categoryRecommendation = 
         {
-            id: 1,
             open: false,
             brief: "Category Recommendation", 
             content: "This is a category recommendation", 
             reasons: [
-            {content: "This is reason 1.",
-            evidence: [
-                {content: "Evidence 1"},
-                {content: "Evidence 2"},
-            ]}
+                {content: "This is reason 1.",
+                evidence: [
+                    {content: "Evidence 1"},
+                    {content: "Evidence 2"},
+                ]}
             ],
             subrecommendations: [lowLevelRecommendation]
         }
         let categoryRecommendation2 = 
         {
-            id: 5,
             open: false,
             brief: "Category Recommendation 2", 
             content: "This is a second category recommendation", 
             reasons: [
-            {content: "This is yet another reason.",
-            evidence: [
-                {content: "Evidence"},
-                {content: "More evidence"},
-            ]}
+                {content: "This is yet another reason.",
+                evidence: [
+                    {content: "Evidence"},
+                    {content: "More evidence"},
+                ]}
             ],
-            subrecommendations: [lowLevelRecommendation]
+            subrecommendations: [lowLevelRecommendation2]
+        }
+        let categoryRecommendation3 = 
+        {
+            open: false,
+            brief: "Category Recommendation 3", 
+            content: "This is a third category recommendation", 
+            reasons: [
+                {content: "This is yet another reason.",
+                evidence: [
+                    {content: "Evidence"},
+                    {content: "More evidence"},
+                ]}
+            ],
+            subrecommendations: []
+        }
+        let categoryRecommendation4 = 
+        {
+            open: false,
+            brief: "Category Recommendation 4", 
+            content: "This is a fourth category recommendation", 
+            reasons: [
+                {content: "This is yet another reason.",
+                evidence: [
+                    {content: "Evidence"},
+                    {content: "More evidence"},
+                ]}
+            ],
+            subrecommendations: []
+        }
+        let categoryRecommendation5 = 
+        {
+            open: false,
+            brief: "Category Recommendation 5", 
+            content: "This is a fifth category recommendation", 
+            reasons: [
+                {content: "This is yet another reason.",
+                evidence: [
+                    {content: "Evidence"},
+                    {content: "More evidence"},
+                ]}
+            ],
+            subrecommendations: []
         }
         let domainRecommendation = 
         {
-            id: 2,
             open: false,
             brief: "Domain Recommendation", 
             content: "You should invest in Employee Engagement", 
             reasons: [
-            {content: "The Reason is that peer benchmarking shows...",
-            evidence: [
-                {content: "Evidence 1: 97% of peers..."},
-                {content: "Evidence 2: More evidence for this reason."},
-            ]}
+                {content: "The Reason is that peer benchmarking shows...",
+                evidence: [
+                    {content: "Evidence 1: 97% of peers..."},
+                    {content: "Evidence 2: More evidence for this reason."},
+                ]}
             ],
             // subrecommendations: ["a", "b", "c"]
             subrecommendations: [categoryRecommendation, categoryRecommendation2]
         }
         let domainRecommendation2 = 
         {
-            id: 4,
             open: false,
             brief: "Domain Recommendation 2", 
             content: "You should invest in some other domain...", 
             reasons: [
-            {content: "The Reason is that something something...",
-            evidence: [
-                {content: "Evidence 1: some evidence 1..."},
-                {content: "Evidence 2: some evidence 2..."},
-                {content: "Evidence 3: some evidence 3..."},
-            ]}
+                {content: "The Reason is that something something...",
+                evidence: [
+                    {content: "Evidence 1: some evidence 1..."},
+                    {content: "Evidence 2: some evidence 2..."},
+                    {content: "Evidence 3: some evidence 3..."},
+                ]}
             ],
             // subrecommendations: ["a", "b", "c"]
-            subrecommendations: []
+            subrecommendations: [categoryRecommendation3, categoryRecommendation4, categoryRecommendation5]
         }
         let recList = {
             open: true,

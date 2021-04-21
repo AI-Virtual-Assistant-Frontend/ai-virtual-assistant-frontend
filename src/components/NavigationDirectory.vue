@@ -4,7 +4,7 @@
     <div v-if="Directory.open">
       <div :style="indent" align="left" v-for="element in Directory.subrecommendations" 
       v-bind:key="element.id">
-        <p> <button class="buttonInvis" v-on:click="expand(element)"><b>{{ element.brief }}</b> </button> </p>
+        <p><button class="buttonInvis" v-on:click="expand(element)"><b>> {{ element.brief }}</b></button> </p>
         <navigation-directory v-bind:Directory="element" v-bind:depth="depth + 1"></navigation-directory>
       </div>
     </div>
@@ -27,10 +27,10 @@ export default {
   },
   methods: {
     expand(Directory){
-      // this.$emit("expandSubdirectory", Directory)
       this.$parent.expand(Directory)
     },
   },
+  // Help from: https://vuejsdevelopers.com/2017/10/23/vue-js-tree-menu-recursive-components/
   computed: {
     indent() {
       return { transform: `translate(${this.depth * 10}px)`}
@@ -55,7 +55,6 @@ li {
 .buttonInvis {
   border: none;
   background-color: rgba(0, 0, 0, 0);
-  align: left;
 }
 p {
     white-space: pre;
