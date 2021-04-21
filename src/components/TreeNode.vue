@@ -1,11 +1,14 @@
 <template>
   <div class="tree">
     <button @click="toggleExpand">
-      <h1>{{ name }}</h1>
-      <p>{{ description }}</p>
+      <h1>{{ currTree.name }}</h1>
+      <p>{{ currTree.description }}</p>
     </button>
-    <div class="children" v-show="expanded" v-for="child in children" :key="child.name">
-      <TreeNode :name="child.name" :description="child.description" :children="child.children" />
+    <div class="same-level">
+      <div class="children" v-show="expanded" v-for="child in currTree.children" :key="child.name">
+        <!-- <TreeNode :name="child.name" :description="child.description" :children="child.children" /> -->
+        <TreeNode :currTree="child" />
+      </div>
     </div>
   </div>
 </template>
@@ -14,9 +17,10 @@
 export default {
   name: 'TreeNode',
   props: {
-    name: String,
-    description: String,
-    children: Object
+    // name: String,
+    // description: String,
+    // children: Object
+    currTree: Object
   },
   methods: {
     toggleExpand() {
@@ -33,12 +37,11 @@ export default {
 
 <style scoped>
 .tree {
-  margin: auto;
-  width: 50%;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
-.children {
+.same-level {
   display: flex;
-  flex-flow: row nowrap;
 }
 </style>

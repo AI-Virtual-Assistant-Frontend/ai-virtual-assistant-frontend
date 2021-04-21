@@ -1,8 +1,14 @@
 <template>
 <div id="Recommand">
-    <input type="button" name="Recommand" value="Recommand" @click="toggleDisplay"/>
-    <div id = "welcomeDiv" class="backdrop" v-show="display">
+    <!-- <input type="button" name="Recommand" value="Recommand" @click="toggleDisplay"/> -->
+    <div id = "welcomeDiv" class="backdrop">
         <div class = "Sidebar">
+            <button
+                type="button"
+                @click="close"
+            >
+                X
+            </button>
             <h2>Sidebar content</h2>
             <button class = "button2" >Add Data</button>
             <input type = "text"  ref = "name">
@@ -51,13 +57,13 @@ export default {
     showdiv(){
         document.getElementById("welcomeDiv").style.display = "";
     },
-    toggleDisplay() {
-            this.display = !this.display;
-        }
+    close() {
+        this.$emit('close');    
+    }
     },
     data() {
         return {
-            display: false
+            // display: true
         }
     }
 }
@@ -68,7 +74,7 @@ export default {
 .Sidebar{
     position:absolute;
     right:-100px;
-    width:280px;
+    width:200px;
     height:800px;
     margin: 100px;
     padding: 20px;

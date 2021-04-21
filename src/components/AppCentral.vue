@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="outer">
     <div v-for="rec in recommendations" :key="rec.name" class="tree-button">
       <TreeNode :name="rec.name" :description="rec.description" :children="rec.children" class="tree"/>
     </div>
@@ -18,7 +18,7 @@ export default {
     return {
       recommendations: [
         {
-          name: 'Recommendation1',
+          name: 'Recommendation',
           description: 'Description',
           children: [
             {
@@ -51,7 +51,7 @@ export default {
           ]
         },
         {
-          name: 'Recommendation2',
+          name: 'Recommendation',
           description: 'Description',
           children: [
             {
@@ -75,13 +75,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.tree-button {
-  display: flex;
-  flex-flow: row wrap;
+.outer {
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: space-between;
+ margin: 20px;
 }
 
-.tree {
-  margin: auto;
-  width: 50%;
+.tree-button {
+  /* display: flex; */
+  /* flex-flow: row wrap; */
 }
+
+/* .tree {
+  display: flex;
+  flex-flow: column nowrap; */
+/* } */
 </style>

@@ -11,11 +11,11 @@ export default {
   methods: {
     directoryUpdate(){
         let dir1 = {
-            Name: "dir 1",
+            Name: "Employee Engagement",
             Contents: null
         }
         let dir2 = {
-            Name: "dir 2",
+            Name: "Revenue Management",
             Contents: null
         }
         this.$emit('directoryUpdate', [dir1, dir2])

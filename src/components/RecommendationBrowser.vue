@@ -1,22 +1,126 @@
 <template>
   <div class="recommendationBrowser">
     <h3>Recommendation Browser</h3>
-    <recommendation-browser-box-component 
+    <div 
       v-for="recommendation in recommendations"
       v-bind:key="recommendation.id"
-      v-bind:recommendation="recommendation"></recommendation-browser-box-component>
-  </div>
+    >
+      <RecommendationBrowserBoxComponent
+        :recommendation="recommendation"
+        :recTree="recs[0]"
+        @selectRec="recSelected"
+      />
+    </div>
+    <Popup v-show="isPopupVisible" @close="closePopup">
+      <template v-slot:body>
+        <TreeNode :currTree="selectedTree"/>
+      </template>
+    </Popup>
+</div>
 </template>
 
 <script>
 import RecommendationBrowserBoxComponent from './RecommendationBrowserBox.vue'
+import TreeNode from './TreeNode'
+import Popup from './Popup.vue'
 
 export default {
   components: {
-    RecommendationBrowserBoxComponent
+    TreeNode,
+    RecommendationBrowserBoxComponent,
+    Popup
   },
   name: 'RecommendationBrowserComponent',
-  props: ['recommendations'],
+  props: {
+    recommendations: {
+      type: Array,
+      default: null
+    }
+  },
+  methods: {
+    recSelected(recommendation) {
+      // emit selected event to sidebar
+      this.$emit('selected');
+      // make popup visible
+      this.isPopupVisible = true;
+      // find selected recommendation tree
+      this.recs.filter(obj => {
+        if (obj.id == recommendation.id) {
+          this.selectedTree = obj;
+        }
+      });
+    },
+    closePopup() {
+      this.isPopupVisible = false;
+    }
+  },
+  data() {
+    return {
+      isPopupVisible: false,
+      selectedTree: null,
+      recs: [
+        {
+          id: 1,
+          name: 'Recommendation',
+          description: 'Description',
+          children: [
+            {
+              id: 1,
+              name: 'Reason1',
+              description: 'Description',
+              children: [
+                {
+                  id: 1,
+                  name: 'Data1',
+                  description: 'Description',
+                  children: []
+                },
+                {
+                  id: 2,
+                  name: 'Data2',
+                  description: 'Description',
+                  children: []
+                }
+              ]
+            }, 
+            {
+              id: 2,
+              name: 'Reason2',
+              description: 'Description',
+              children: [
+                {
+                  id: 1,
+                  name: 'Data1',
+                  description: 'Description',
+                  children: []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: 2,
+          name: 'Recommendation',
+          description: 'Description',
+          children: [
+            {
+              id: 1,
+              name: 'Reason1',
+              description: 'Description',
+              children: [
+                {
+                  id: 1,
+                  name: 'Data1',
+                  description: 'Description',
+                  children: []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
 }
 </script>
 
@@ -39,6 +143,6 @@ a {
 .recommendationBrowser {
   /* background: chartreuse; */
   /* margin: 0px 40%; */
-  width: 50%;
+  width: 100%;
 }
 </style>

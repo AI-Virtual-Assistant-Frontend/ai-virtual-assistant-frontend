@@ -11,6 +11,10 @@ export default {
 </script>
 
 <style scoped>
+.outer {
+  border-top: 5px solid black;
+}
+
 .title {
   margin: auto;
   width: 50%;
