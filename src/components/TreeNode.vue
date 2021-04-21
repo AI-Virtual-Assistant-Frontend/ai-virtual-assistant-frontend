@@ -1,8 +1,8 @@
 <template>
   <div class="tree">
     <button @click="toggleExpand">
-      <h1>{{ currTree.name }}</h1>
-      <p>{{ currTree.description }}</p>
+      <h1>{{ currTree.brief }}</h1>
+      <p>{{ currTree.content }}</p>
     </button>
     <div class="same-level">
       <div class="children" v-show="expanded" v-for="child in currTree.children" :key="child.name">
