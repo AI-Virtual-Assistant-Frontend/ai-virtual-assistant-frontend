@@ -49,9 +49,9 @@ export default {
   name: 'Sidebar',
   methods: {
     handleclick(){
-    console.log(this.$ref.name)
-    this.$ref.name.classList.add('active')
-    }
+      console.log(this.$ref.name)
+      this.$ref.name.classList.add('active')
+    },
     close() {
       this.$emit('close');    
     }
