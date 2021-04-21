@@ -2,11 +2,7 @@
   <div class="recommendationBox">
     <p>{{recommendation.brief}}</p>
     <div class=buttonDiv>
-      <button v-on:click="toggleSelect">{{ recommendation.brief }}</button>
-    </div>
-    <div v-if="selected" class="recommendationDetails">
-      <h3>{{recommendation.brief}}</h3>
-      <p>{{recommendation.content}}</p>
+      <button @click="selectRec">{{ recommendation.brief }}</button>
     </div>
   </div>
 </template>
@@ -19,13 +15,20 @@ export default {
       selected: false,
     }
   },
-  props: ['recommendation'],
+  props: {
+    recommendation: {
+      type: Object
+    }
+  },
   methods: {
     reverseMessage: function() {
       this.recommendation.brief = this.recommendation.brief.split('').reverse().join('')
     },
     toggleSelect: function() {
       this.selected = !this.selected
+    },
+    selectRec() {
+      this.$emit('selectRec', this.recommendation);
     }
   }
 }

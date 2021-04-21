@@ -10,7 +10,7 @@
     </div>
     
     <div class = "central">
-      <recommendation-browser-component ref="recommendationBrowser" style="float: left;" v-bind:recommendation="SelectedRecommendation"></recommendation-browser-component>
+      <recommendation-browser-component @selected="showSidebar" ref="recommendationBrowser" style="float: left;" v-bind:recommendation="SelectedRecommendation"></recommendation-browser-component>
     </div>
   </div>
 </template>
@@ -37,6 +37,9 @@ export default {
     this.refresh()
   },
   methods: {
+    showSidebar() {
+      this.$emit('showSidebar');
+    },
     refresh(){
       this.$refs.MongoInstance.directoryUpdate()
     },

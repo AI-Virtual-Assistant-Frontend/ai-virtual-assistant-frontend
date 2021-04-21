@@ -15,12 +15,13 @@ export default {
             open: false,
             brief: "Lowest Level Recommendation", 
             content: "This is a lowest level recommendation", 
-            reasons: [
-                {content: "This is a reason for this lowest level recommendation.",
-                evidence: [
-                    {content: "Evidence 1 for lowest level reason"},
-                    {content: "Evidence 2 for lowest level reason"},
-                    {content: "Evidence 3 for lowest level reason"},
+            children: [
+                { brief: 'Reason 1',
+                content: "This is a reason for this lowest level recommendation.",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence 1 for lowest level reason"},
+                    {brief: 'Evidence 2', content: "Evidence 2 for lowest level reason"},
+                    {brief: 'Evidence 3', content: "Evidence 3 for lowest level reason"},
                 ]}
             ],
             subrecommendations: []
@@ -30,12 +31,13 @@ export default {
             open: false,
             brief: "Lower Level Recommendation", 
             content: "This is a lower level recommendation", 
-            reasons: [
-                {content: "This is a reason for this lower level recommendation.",
-                evidence: [
-                    {content: "Evidence 1 for lower level reason"},
-                    {content: "Evidence 2 for lower level reason"},
-                    {content: "Evidence 3 for lower level reason"},
+            children: [
+                { brief: 'Reason 1',
+                content: "This is a reason for this lower level recommendation.",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence 1 for lower level reason"},
+                    {brief: 'Evidence 2', content: "Evidence 2 for lower level reason"},
+                    {brief: 'Evidence 3', content: "Evidence 3 for lower level reason"},
                 ]}
             ],
             subrecommendations: [lowestLevelRecommendation]
@@ -45,11 +47,12 @@ export default {
             open: false,
             brief: "Low Level Recommendation", 
             content: "This is a low level recommendation", 
-            reasons: [
-                {content: "This is a reason for this low level recommendation.",
-                evidence: [
-                    {content: "Evidence 1 for low level reason"},
-                    {content: "Evidence 2 for low level reason"},
+            children: [
+                { brief: 'Reason 1',
+                content: "This is a reason for this low level recommendation.",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence 1 for low level reason"},
+                    {brief: 'Evidence 2', content: "Evidence 2 for low level reason"},
                 ]}
             ],
             subrecommendations: [lowerLevelRecommendation]
@@ -59,11 +62,12 @@ export default {
             open: false,
             brief: "Low Level Recommendation 2", 
             content: "This is a second low level recommendation", 
-            reasons: [
-                {content: "This is a reason for this low level recommendation.",
-                evidence: [
-                    {content: "Evidence 1 for low level reason"},
-                    {content: "Evidence 2 for low level reason"},
+            children: [
+                { brief: 'Reason 1',
+                content: "This is a reason for this low level recommendation.",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence 1 for low level reason"},
+                    {brief: 'Evidence 2', content: "Evidence 2 for low level reason"},
                 ]}
             ],
             subrecommendations: []
@@ -73,11 +77,12 @@ export default {
             open: false,
             brief: "Category Recommendation", 
             content: "This is a category recommendation", 
-            reasons: [
-                {content: "This is reason 1.",
-                evidence: [
-                    {content: "Evidence 1"},
-                    {content: "Evidence 2"},
+            children: [
+                { brief: 'Reason 1',
+                content: "This is reason 1.",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence 1"},
+                    {brief: 'Evidence 2', content: "Evidence 2"},
                 ]}
             ],
             subrecommendations: [lowLevelRecommendation]
@@ -87,11 +92,12 @@ export default {
             open: false,
             brief: "Category Recommendation 2", 
             content: "This is a second category recommendation", 
-            reasons: [
-                {content: "This is yet another reason.",
-                evidence: [
-                    {content: "Evidence"},
-                    {content: "More evidence"},
+            children: [
+                { brief: 'Reason 1',
+                content: "This is yet another reason.",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence"},
+                    {brief: 'Evidence 2', content: "More evidence"},
                 ]}
             ],
             subrecommendations: [lowLevelRecommendation2]
@@ -101,11 +107,12 @@ export default {
             open: false,
             brief: "Category Recommendation 3", 
             content: "This is a third category recommendation", 
-            reasons: [
-                {content: "This is yet another reason.",
-                evidence: [
-                    {content: "Evidence"},
-                    {content: "More evidence"},
+            children: [
+                { brief: 'Reason 1',
+                content: "This is yet another reason.",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence"},
+                    {brief: 'Evidence 2', content: "More evidence"},
                 ]}
             ],
             subrecommendations: []
@@ -115,11 +122,12 @@ export default {
             open: false,
             brief: "Category Recommendation 4", 
             content: "This is a fourth category recommendation", 
-            reasons: [
-                {content: "This is yet another reason.",
-                evidence: [
-                    {content: "Evidence"},
-                    {content: "More evidence"},
+            children: [
+                { brief: 'Reason 1',
+                content: "This is yet another reason.",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence"},
+                    {brief: 'Evidence 2', content: "More evidence"},
                 ]}
             ],
             subrecommendations: []
@@ -129,11 +137,12 @@ export default {
             open: false,
             brief: "Category Recommendation 5", 
             content: "This is a fifth category recommendation", 
-            reasons: [
-                {content: "This is yet another reason.",
-                evidence: [
-                    {content: "Evidence"},
-                    {content: "More evidence"},
+            children: [
+                { brief: 'Reason 1',
+                content: "This is yet another reason.",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence"},
+                    {brief: 'Evidence 2', content: "More evidence"},
                 ]}
             ],
             subrecommendations: []
@@ -142,12 +151,13 @@ export default {
         {
             open: false,
             brief: "Domain Recommendation", 
-            content: "You should invest in Employee Engagement", 
-            reasons: [
-                {content: "The Reason is that peer benchmarking shows...",
-                evidence: [
-                    {content: "Evidence 1: 97% of peers..."},
-                    {content: "Evidence 2: More evidence for this reason."},
+            content: "You should invest in Employee Engagement",
+            children: [
+                { brief: 'Reason 1',
+                content: "The Reason is that peer benchmarking shows...",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence 1: 97% of peers..."},
+                    {brief: 'Evidence 2', content: "Evidence 2: More evidence for this reason."},
                 ]}
             ],
             // subrecommendations: ["a", "b", "c"]
@@ -158,12 +168,13 @@ export default {
             open: false,
             brief: "Domain Recommendation 2", 
             content: "You should invest in some other domain...", 
-            reasons: [
-                {content: "The Reason is that something something...",
-                evidence: [
-                    {content: "Evidence 1: some evidence 1..."},
-                    {content: "Evidence 2: some evidence 2..."},
-                    {content: "Evidence 3: some evidence 3..."},
+            children: [
+                { brief: 'Reason 1',
+                content: "The Reason is that something something...",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence 1: some evidence 1..."},
+                    {brief: 'Evidence 2', content: "Evidence 2: some evidence 2..."},
+                    {brief: 'Evidence 3', content: "Evidence 3: some evidence 3..."},
                 ]}
             ],
             // subrecommendations: ["a", "b", "c"]

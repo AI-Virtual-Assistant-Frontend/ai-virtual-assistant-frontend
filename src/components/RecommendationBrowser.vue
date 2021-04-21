@@ -1,28 +1,58 @@
 <template>
   <div class="recommendationBrowser">
     <h3>Recommendation Browser</h3>
-    <!-- <p>{{recommendation.subrecommendations}}</p> -->
     <div v-for="subrecommendation in recommendation.subrecommendations"
       v-bind:key="subrecommendation.id">
-      <recommendation-browser-box v-bind:recommendation="subrecommendation"></recommendation-browser-box>
+      <RecommendationBrowserBoxComponent
+        :recommendation="subrecommendation"
+        @selectRec="recSelected"
+      />
     </div>
-    <recommendation-browser-box-component 
-      v-for="subrecommendation in recommendation.subrecommendations"
-      v-bind:key="subrecommendation.id"
-      v-bind:recommendation="subrecommendation"></recommendation-browser-box-component>
-  </div>
+    <Popup v-show="isPopupVisible" @close="closePopup">
+      <template v-slot:body>
+        <TreeNode :currTree="selectedTree"/>
+      </template>
+    </Popup>
+</div>
 </template>
 
 <script>
-import RecommendationBrowserBox from './RecommendationBrowserBox.vue'
-// import RecommendationBrowserBoxComponent from './RecommendationBrowserBox.vue'
+import RecommendationBrowserBoxComponent from './RecommendationBrowserBox.vue'
+import TreeNode from './TreeNode'
+import Popup from './Popup.vue'
 
 export default {
   components: {
-    RecommendationBrowserBox
+    TreeNode,
+    RecommendationBrowserBoxComponent,
+    Popup
   },
   name: 'RecommendationBrowserComponent',
-  props: ['recommendation'],
+  props: {
+    recommendation: {
+      type: Array,
+      default: null
+    }
+  },
+  methods: {
+    recSelected(recommendation) {
+      // emit selected event to sidebar
+      this.$emit('selected');
+      // make popup visible
+      this.isPopupVisible = true;
+      // find selected recommendation tree
+      this.selectedTree = recommendation;
+    },
+    closePopup() {
+      this.isPopupVisible = false;
+    }
+  },
+  data() {
+    return {
+      isPopupVisible: false,
+      selectedTree: null
+    }
+  }
 }
 </script>
 
@@ -44,7 +74,6 @@ a {
 }
 .recommendationBrowser {
   background: chartreuse;
-  /* margin: 0px 40%; */
   width: 100%;
 }
 </style>
