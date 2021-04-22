@@ -39,7 +39,8 @@ export default {
 
 
 .recommendationBox {
-  text-align: left;
+  text-align: center;
+  color: white;
   background-color: #006CBA;
   border: 2px solid #002C3A;
   margin: 0px 5%;
@@ -54,6 +55,7 @@ button {
   border: 2px solid #002C3A;
   color: #002C3A;
   text-align: center;
+  font-weight: 700;
   padding: 64px 32px;
   margin: 10px 10px;
   font-size: 16px;
