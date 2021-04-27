@@ -147,6 +147,74 @@ export default {
             ],
             subrecommendations: []
         }
+        let categoryRecommendation6 = 
+        {
+            open: false,
+            brief: "Category Recommendation 6", 
+            content: "This is a sixth category recommendation", 
+            children: [
+                { brief: 'Reason 1',
+                content: "This is yet another reason.",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence"},
+                    {brief: 'Evidence 2', content: "More evidence"},
+                ]},
+                { brief: 'Reason 2',
+                content: "This is yet another reason.",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence"},
+                    {brief: 'Evidence 2', content: "More evidence"},
+                    {brief: 'Evidence 3', content: "Even more evidence"},
+                    {brief: 'Evidence 4', content: "Additional evidence"},
+                ]}
+            ],
+            subrecommendations: []
+        }
+        let categoryRecommendation7 = 
+        {
+            open: false,
+            brief: "Category Recommendation 7", 
+            content: "This is a seventh category recommendation", 
+            children: [
+                { brief: 'Reason 1',
+                content: "Reason description here.",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence"},
+                    {brief: 'Evidence 2', content: "More evidence"},
+                ]}
+            ],
+            subrecommendations: []
+        }
+        let categoryRecommendation8 = 
+        {
+            open: false,
+            brief: "Category Recommendation 8", 
+            content: "This is a eighth category recommendation", 
+            children: [
+                { brief: 'Reason 1',
+                content: "Reason description here.",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence"},
+                    {brief: 'Evidence 2', content: "More evidence"},
+                ]}
+            ],
+            subrecommendations: []
+        }
+        let categoryRecommendation9 = 
+        {
+            open: false,
+            brief: "Category Recommendation 9", 
+            content: "This is a ninth category recommendation", 
+            children: [
+                { brief: 'Reason 1',
+                content: "Reason description here.",
+                children: [
+                    {brief: 'Evidence 1', content: "Evidence"},
+                    {brief: 'Evidence 2', content: "More evidence"},
+                ]}
+            ],
+            subrecommendations: []
+        }
         let domainRecommendation = 
         {
             open: false,
@@ -178,7 +246,7 @@ export default {
                 ]}
             ],
             // subrecommendations: ["a", "b", "c"]
-            subrecommendations: [categoryRecommendation3, categoryRecommendation4, categoryRecommendation5]
+            subrecommendations: [categoryRecommendation3, categoryRecommendation4, categoryRecommendation5, categoryRecommendation6, categoryRecommendation7, categoryRecommendation8, categoryRecommendation9]
         }
         let recList = {
             open: true,

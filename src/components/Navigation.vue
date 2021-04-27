@@ -74,7 +74,7 @@ li {
 }
 .panel{
     float: left;
-    width:350px;
+    width:400px;
     height:50vh;
     border-radius: 5px;
     background:rgba(155, 179, 247, 0.219);
@@ -90,7 +90,7 @@ li {
 }
 .central{
   float: right;
-  width: 700px;
+  width: 900px;
   position: relative;
   /* right: -100px; */
 }

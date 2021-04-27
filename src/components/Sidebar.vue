@@ -63,7 +63,7 @@ export default {
 .Sidebar{
   position:absolute;
   right:-100px;
-  width:200px;
+  width:300px;
   height:800px;
   margin: 100px;
   padding: 20px;

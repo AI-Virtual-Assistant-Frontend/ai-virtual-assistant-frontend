@@ -1,12 +1,22 @@
 <template>
   <div class="recommendationBrowser">
     <h3>Recommendation Browser</h3>
-    <div v-for="subrecommendation in recommendation.subrecommendations"
+    <div v-for="(subrecommendation, index) in recommendation.subrecommendations"
       v-bind:key="subrecommendation.id">
-      <RecommendationBrowserBoxComponent
-        :recommendation="subrecommendation"
-        @selectRec="recSelected"
-      />
+      <b-row v-if="index%2==0" align-v="center">
+        <b-col align-h="center">
+          <RecommendationBrowserBoxComponent
+            :recommendation="subrecommendation"
+            @selectRec="recSelected"
+          />
+        </b-col>
+        <b-col v-if="recommendation.subrecommendations[index+1]" align-h="center">
+          <RecommendationBrowserBoxComponent
+            :recommendation="recommendation.subrecommendations[index+1]"
+            @selectRec="recSelected"
+          />
+        </b-col>
+      </b-row>
     </div>
     <Popup v-show="isPopupVisible" @close="closePopup">
       <template v-slot:body>
@@ -73,7 +83,8 @@ a {
   color: #42b983;
 }
 .recommendationBrowser {
-  background: chartreuse;
+  border: 2px solid black;
+  background: rgba(155, 179, 247, 0.219);
   width: 100%;
 }
 </style>
