@@ -1,6 +1,6 @@
 <template>
   <div class="outer">
-    <h1 class="title">C-Plan.It</h1>
+    <h1 class="title">C-Plan.It AI Virtual Assistant</h1>
   </div>
 </template>
 
