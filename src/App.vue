@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <DaBaby newName="This is my Test Component"/>
     <RecommendationBrowserComponent v-bind:recommendations="recs"></RecommendationBrowserComponent>
     
   </div>
@@ -12,16 +11,13 @@
 
 
 <script>
-import DaBaby from './components/DaBaby.vue'
 import RecommendationBrowserComponent from './components/RecommendationBrowser.vue'
 
 
 export default {
   name: 'App',
   components: {
-    DaBaby,
-    RecommendationBrowserComponent,
-  
+    RecommendationBrowserComponent
   },
 
   data(){
