@@ -1,7 +1,7 @@
 <template>
   <div>
     <AppHeader class="header" />
-    <Navigation class="navigation" @showSidebar="openSidebar" ref="navigation" v-bind:recommendations="domainRecommendation"></Navigation>
+    <Navigation class="navigation" @showSidebar="showSidebar" ref="navigation" v-bind:recommendations="domainRecommendation"></Navigation>
     <Sidebar class="sidebar" v-show="isSidebarVisible" @close="closeSidebar" />
   </div>
 </template>
@@ -19,11 +19,11 @@ export default {
     Navigation
   },
   methods: {
-    openSidebar() {
-      this.isSidebarVisible = true;
-    },
     closeSidebar() {
       this.isSidebarVisible = false;
+    },
+    showSidebar(openOrClose) {
+      this.isSidebarVisible = openOrClose;
     }
   },
   data() {

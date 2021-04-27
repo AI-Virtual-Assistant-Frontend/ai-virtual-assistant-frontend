@@ -46,15 +46,18 @@ export default {
   },
   methods: {
     recSelected(recommendation) {
-      // emit selected event to sidebar
-      this.$emit('selected');
       // make popup visible
       this.isPopupVisible = true;
+      // emit selected event to open sidebar
+      this.$emit('selected', this.isPopupVisible);
       // find selected recommendation tree
       this.selectedTree = recommendation;
     },
     closePopup() {
+      // close Popup
       this.isPopupVisible = false;
+      // emit event to close sidebar
+      this.$emit('selected', this.isPopupVisible);
     }
   },
   data() {
@@ -66,7 +69,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;

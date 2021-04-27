@@ -16,9 +16,6 @@
 export default {
   name: 'TreeNode',
   props: {
-    // name: String,
-    // description: String,
-    // children: Object
     currTree: Object
   },
   methods: {

@@ -37,8 +37,8 @@ export default {
     this.refresh()
   },
   methods: {
-    showSidebar() {
-      this.$emit('showSidebar');
+    showSidebar(openOrClose) {
+      this.$emit('showSidebar', openOrClose);
     },
     refresh(){
       this.$refs.MongoInstance.directoryUpdate()
@@ -55,7 +55,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;
